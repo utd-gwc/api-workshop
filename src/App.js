@@ -36,9 +36,24 @@ function App() {
   const [rowsOfReps, setRowsOfReps] = useState(null);
 
   async function onSearch(value) {
-    console.log(value);
-    return;
-    /** fill out this function with an API call to make when the user searches something **/
+    if (!value)
+      return;
+    setLoading(true);
+
+    const address = encodeURI(value);
+    const res = await fetch(
+      `https://www.googleapis.com/civicinfo/v2/representatives?key=${API_KEY}&address=${address}`,
+      { method: 'GET' }
+    );
+    const json = await res.json();
+
+    if (json.error != null) {
+      alert("ERROR")
+    } else {
+      const rows = parser(json.offices, json.officials)
+      setRowsOfReps(rows);
+    }
+    setLoading(false);
   }
 
   return (
