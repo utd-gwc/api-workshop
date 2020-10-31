@@ -62,7 +62,12 @@ function App() {
         <Typography.Title style={{ color: "white", marginTop: 20 }}>
           Find Your Reps
         </Typography.Title>
-        <Input.Search placeholder="Enter your address" onSearch={onSearch} loading={loading} allowClear style={{ width: 200, marginBottom: 20 }} />
+        <Input.Search
+          placeholder="Enter your address"
+          onSearch={onSearch}
+          loading={loading}
+          allowClear
+          style={{ width: 200, marginBottom: 20 }} />
         <Reps rowsOfReps={rowsOfReps} />
       </div>
     </div>
