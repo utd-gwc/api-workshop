@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Working With APIs Workshop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is meant to act as supplemental material for the UTD Girls Who Code Working with APIs Workshop. Please use this code to gain a basic understanding of how to gain access to, utilize, and display info from APIs.
 
-## Available Scripts
+All of the finished code can be found on the `final-code` branch. To view a demo of this project checkout: https://utd-gwc.github.io/api-workshop/
 
-In the project directory, you can run:
+## Get Access
+We are going to be using the Google Civic Information API which requires an API key. Many public and private APIs will either be protected by an API key (which could be linked to a billing account) or to some Oauth verification. To generate an API key for your project follow the steps outlined here: https://developers.google.com/civic-information/docs/using_api.
 
-### `yarn start`
+## Utilize
+Now we need to make a call to the API so that we can get the information we want from. We can check out how to use the Civic Information API here: https://developers.google.com/civic-information/docs/v2.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+For this specific workshop we'll be getting representative info based on address which has usage documentation here: https://developers.google.com/civic-information/docs/v2/representatives/representativeInfoByAddress.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To call an API in React we can use the built-in function `fetch()`. We will call the `fetch()` function inside the async function onSearch so that once someone searches a certain address we pass that to the API and then populate the information for our user.
 
-### `yarn test`
+## Display
+Once we have gotten the info from the API then we will need to parse it and display it to our user. These tasks have been abstracted for the purposes of this workshop but can be found within the codebase. Parsing is being done by the `parser()` function and the UI components are being handled by the `Reps.js` file. All we need to do is pass the officials and offices fields from the json object we receive from the API.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Install Dependencies
+To install the necessary dependencies for this code run the following command:
 
-### `yarn build`
+`yarn`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+OR
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`npm install`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Run
+To run the code in your local development environment run the following command:
 
-### `yarn eject`
+`yarn start`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+OR
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`npm start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Your code should now be running on http://localhost:3000
